@@ -17,6 +17,8 @@ pygame.display.update()
 run = True
 show=False
 start_time=time.time()
+
+baloon=pygame.image.load("baloons.png")
 while run:
     for event in pygame.event.get():
          if event.type == pygame.QUIT:
@@ -38,4 +40,8 @@ while run:
     
             screen.blit(text,text_rect)
             pygame.display.update()
+    if not show and time.time()-start_time>=10:
+         screen.fill(NAVY)
+         screen.blit(baloon,(-100,100))
+         pygame.display.update()
 pygame.QUIT()
